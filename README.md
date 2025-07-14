@@ -29,28 +29,28 @@ A reference spec so you don't waste interview time guessing designs. Feel free t
    • Works on mobile (320 px) and desktop.  
    • No major layout shifts (CLS) when images load.
 
-5. **Accessibility** (expected at Principal level)  
+5. **Accessibility**  
    • Keyboard-navigable links, sufficient color contrast, `role="navigation"` on the header.
 
 This description is purposely lightweight—focus on functionality and performance rather than pixel-perfect styling.
 
 ---
 
-## 🚨 Objectives First
+## 🚨 What You Need To Build
 
-**Core Deliverables**
-1. **Layout + Navigation** – persistent header, state retention.
-2. **Games Page** – static games list rendered with CSS `background-image`.
-3. **SEO Metadata** – dynamic `generateMetadata()` per page.
-4. **Performance Pass** – Lighthouse 2-point uplift (fonts, code-split, etc.).
+**All Requirements** (placeholders ready for implementation)
+1. **Layout + Navigation** – persistent header with state retention across pages
+2. **Games Page** – fetch games data from `/api/games` and render with CSS `background-image`
+3. **API Route** – `/api/games` endpoint with proper caching headers and security
+4. **SEO Metadata** – dynamic `generateMetadata()` per page
+5. **Performance Pass** – Lighthouse 2-point uplift (fonts, code-split, etc.)
+6. **Integration Tests** – test suite for API endpoints (`npm test`)
+7. **Docker** – containerized build with `.dockerignore`
+8. **Monitoring** – Web Vitals reporting to `/api/metrics`
 
-**Principal-Level Requirements** (placeholders ready)
-• API route: `app/api/games/route.ts`  
-• Integration test: `tests/api-games.test.ts`  
-• Dockerfile build + `.dockerignore`  
-• Monitoring via `app/reportWebVitals.ts` + `/api/metrics` route
+> ⚠️ **No Static Data** – Games page must fetch from your `/api/games` backend route, not hardcoded arrays.
 
-Jump to "🎯 The Brief" and "🆕 Principal Requirements" below for full details.
+Jump to "🎯 The Brief" and "🆕 Implementation Details" below for full specifications.
 
 ---
 
@@ -81,7 +81,7 @@ Jump to "🎯 The Brief" and "🆕 Principal Requirements" below for full detail
 | 25-40 min | Build **Games** page + fetch static data |
 | 40-50 min | Add **SEO metadata** with `generateMetadata()` |
 | 50-60 min | Run **Lighthouse**, apply 2 quick performance wins |
-| 60-90 min | **Principal Requirements**: API, Docker, Tests, Monitoring |
+| 60-90 min | **Full-Stack Requirements**: API, Docker, Tests, Monitoring |
 
 > You do **not** have to follow these timings exactly—they're guard-rails to help you prioritise.
 
@@ -116,9 +116,10 @@ Feel free to add any folders (e.g. `components/`, `lib/`, `hooks/`) as you see f
 
 ### 2. Games Page + Data (15 min)
 
-* Create an array of **2-3 game items** — each with `title` + image `url`.
+* **Fetch games data** from your `/api/games` endpoint (not hardcoded arrays).
 * Render them on `/games` using **CSS `background-image`** (no `<img>` or `next/image`).
-* Fetch data with the recommended pattern for Next 15 (e.g. **Server Components** + `generateMetadata`).
+* Use recommended Next.js 15 pattern: **Server Components** that call your API route.
+* Each game should have `title` + `imageUrl` properties.
 
 ### 3. SEO Metadata (10 min)
 
@@ -148,10 +149,9 @@ Feel free to add any folders (e.g. `components/`, `lib/`, `hooks/`) as you see f
 
 ---
 
-## 🆕 Principal Requirements
+## 🆕 Implementation Details
 
-These requirements are essential for a Principal-level assessment. They demonstrate architectural,
-deployment and reliability skills. All placeholder files are ready for implementation.
+All placeholder files are ready for implementation. Build a production-ready full-stack application.
 
 > ℹ️  **Placeholders already exist** for each task so you can jump straight into coding:
 > • `app/api/games/route.ts`
@@ -180,14 +180,12 @@ This description is purposely lightweight—focus on functionality and performan
 
 ## ✅ Definition of Done
 
-**Core Deliverables (Required)**
+**All Requirements**
 - [ ] Header navigation works without page reload
-- [ ] Games page displays 2+ items with CSS background-image  
+- [ ] Games page fetches data from `/api/games` and displays with CSS background-image  
 - [ ] Each page has unique `<title>` and meta description
 - [ ] Lighthouse performance score improved by 2+ points
-
-**Principal-Level Requirements (Required)**
-- [ ] `/api/games` returns JSON with proper cache headers
+- [ ] `/api/games` returns JSON with proper cache headers and security
 - [ ] Integration test suite runs successfully (`npm test`)
 - [ ] Docker image builds and runs (`docker build . && docker run -p 3000:3000`)
 - [ ] Web Vitals monitoring implemented via `/api/metrics`
