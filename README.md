@@ -99,16 +99,6 @@ Feel free to add any folders (e.g. `components/`, `lib/`, `hooks/`) as you see f
 
 ---
 
-## �� Helpful Resources
-
-* Next.js App Router docs – https://nextjs.org/docs/app
-* Metadata API – https://nextjs.org/docs/app/api-reference/functions/generate-metadata
-* Lighthouse – https://developer.chrome.com/docs/lighthouse
-
-Good luck — we’re excited to see your approach! 🎉
-
----
-
 ## 🆕 Extended Objectives for Principal-Level Interview
 
 The following stretch goals are now part of the assessment. They surface architectural,
@@ -130,3 +120,31 @@ complete the core UI/SEO milestones or in parallel if you prefer.
 | 8 | **Monitoring** | Export `reportWebVitals` (or similar) to POST Web Vitals (CLS, LCP, FID) to `/api/metrics` (stub route is fine). Explain in code comments how you’d pipe this to Datadog/New Relic. |
 
 > These extras are **bonus** but showcase production thinking. Feel free to stub where noted, but leave clear comments for next steps.
+
+## 🖼️  Suggested UI Layout
+
+A reference spec so you don’t waste interview time guessing designs. Feel free to style it however you like as long as these structural cues exist.
+
+1. **Root Layout (`app/layout.tsx`)**
+   • Sticky header at the top with site name/logo on the left and two links on the right: **Home** and **Games**.  
+   • Header background: light-gray or any neutral color.  
+   • The header (or a burger menu) should remember its open / scroll state when navigating.
+
+2. **Home Page (`/`)**
+   • Simple welcome hero message is enough.  
+   • Demonstrate that navigation back from Games preserves scroll or menu state.
+
+3. **Games Page (`/games`)**
+   • Display your 2-3 games as *cards* (grid or flex).  
+   • Each card uses `background-image` for the artwork; no `<img>` or `next/image>`.  
+   • Overlay the game title on top of the image.  
+   • Cards should be responsive (stack or resize on small screens).
+
+4. **Responsiveness**
+   • Works on mobile (320 px) and desktop.  
+   • No major layout shifts (CLS) when images load.
+
+5. **Accessibility Quick-Wins** (bonus)  
+   • Keyboard-navigable links, sufficient color contrast, `role="navigation"` on the header.
+
+This description is purposely lightweight—focus on functionality and performance rather than pixel-perfect styling.
