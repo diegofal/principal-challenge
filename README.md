@@ -2,6 +2,13 @@
 
 **Goal:** Build a full-stack content site demonstrating layout, data-fetching, SEO, performance, and production deployment skills.
 
+## 💻 System Requirements
+
+- **Node.js** 18+ (LTS recommended)
+- **npm** 9+ or **yarn** 1.22+
+- **Docker** (for containerization requirements)
+- **Modern browser** with dev tools (Chrome/Firefox/Edge)
+
 ## 🚀 Quick Start
 
 ```bash
